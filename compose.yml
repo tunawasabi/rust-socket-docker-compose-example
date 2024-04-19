@@ -12,5 +12,7 @@ services:
       context: .
       dockerfile: sender/Dockerfile
     depends_on:
+      - receiver
+    environment:
       - EXAMPLE_HOST=receiver
       - EXAMPLE_PORT=41211
