@@ -8,3 +8,4 @@ resolver = "2"
 
 [dependencies]
 env = { path = "../env" }
+rand = "0.8.5"

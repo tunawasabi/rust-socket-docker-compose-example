@@ -1,9 +1,7 @@
 use std::{
-    io::Read,
+    io::BufRead,
     net::{TcpListener, TcpStream},
 };
-
-use env;
 
 fn main() {
     let host = env::get_ip_address();
@@ -12,6 +10,8 @@ fn main() {
     let Ok(listner) = TcpListener::bind(format!("{}:{}", host, port)) else {
         panic!("Could not connect to server or bind to port.");
     };
+
+    println!("Server is listening on {}:{}", host, port);
 
     for stream in listner.incoming() {
         let Ok(stream) = stream else {
@@ -23,9 +23,12 @@ fn main() {
     println!("Connection closed.")
 }
 
-fn handle(mut stream: TcpStream) {
-    let mut buffer = [0; 1024];
-    stream.read(&mut buffer).ok();
+fn handle(stream: TcpStream) {
+    let mut buf = String::new();
+    let mut buf_read = std::io::BufReader::new(stream);
 
-    println!("Recieve: {}", String::from_utf8_lossy(&buffer[..]));
+    while buf_read.read_line(&mut buf).is_ok() {
+        print!("Recieve: {}", buf);
+        buf.clear();
+    }
 }
