@@ -3,9 +3,9 @@ use std::{io::Write, net::TcpStream, thread, time::Duration};
 
 const MESSAGE_DIC: [&str; 5] = [
     "Rustが好きです",
-    "Rustはコンパイラが厳しいです",
-    "Rustはコンパイラが速いです",
-    "Rustはコンパイラが親切です",
+    "Dockerは難しいですね",
+    "本日のVPNを発表します",
+    "通信できてる？？？",
     "カレー食べたい",
 ];
 
