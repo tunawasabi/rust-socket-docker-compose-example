@@ -4,10 +4,9 @@ services:
       context: .
       dockerfile: receiver/Dockerfile
     environment:
-      - EXAMPLE_HOST=localhost
+      - EXAMPLE_HOST=0.0.0.0
       - EXAMPLE_PORT=41211
   sender:
-    image: rust
     build:
       context: .
       dockerfile: sender/Dockerfile
