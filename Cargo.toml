@@ -1,4 +1,4 @@
 [workspace]
 
 resolver = "2"
-members = ["env", "reciver", "sender"]
+members = ["env", "receiver", "sender"]
