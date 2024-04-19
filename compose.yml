@@ -1,0 +1,16 @@
+services:
+  reciver:
+    build:
+      context: .
+      dockerfile: reciver/Dockerfile
+    environment:
+      - EXAMPLE_HOST=localhost
+      - EXAMPLE_PORT=41211
+  sender:
+    image: rust
+    build:
+      context: .
+      dockerfile: sender/Dockerfile
+    depends_on:
+      - EXAMPLE_HOST=reciver
+      - EXAMPLE_PORT=41211

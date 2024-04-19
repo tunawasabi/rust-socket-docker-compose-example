@@ -3,9 +3,19 @@
 version = 3
 
 [[package]]
+name = "env"
+version = "0.1.0"
+
+[[package]]
 name = "reciver"
 version = "0.1.0"
+dependencies = [
+ "env",
+]
 
 [[package]]
 name = "sender"
 version = "0.1.0"
+dependencies = [
+ "env",
+]
